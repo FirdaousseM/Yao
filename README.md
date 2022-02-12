@@ -1,5 +1,8 @@
 # Yaoum
 
+The goal of this project is for me to gain experience in web development (with laravel and angular)
+It is website where you can follow/create study program on computer science.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
 ## Development server
