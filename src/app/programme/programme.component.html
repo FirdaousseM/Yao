@@ -1,4 +1,36 @@
-<h1>{{titre}}</h1>
-<p>{{nbModule}} modules</p>
-<p>{{description}}</p>
-<img [src]="banniere" [alt]="titre">
+<!--
+<div>
+    <h1>{{titre}}</h1>
+    
+    <img [src]="banniere" [alt]="titre">
+    <p>{{nbModule}} modules</p>
+    <p>{{description}}</p>
+</div>
+
+
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">@</span>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+-->
+
+<form class="row g-3" >
+    <div class="col-md-4">
+        <label for="validationServer01" class="form-label">First name</label>
+        <input type="text" class="form-control is-valid" id="validationServer01" ngModel name="prenom" value="Mark" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationServer02" class="form-label">Last name</label>
+        <input type="text" class="form-control is-valid" id="validationServer02" ngModel name="nom" value="Otto" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>   
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+    </div>
+</form>

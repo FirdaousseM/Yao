@@ -1,0 +1,17 @@
+<h1 class="display-1"> Créer un module </h1>
+
+<form (ngSubmit)="createModule()">
+    <div class="form-group">
+        <label for="titre">Titre</label>
+        <input type="text" class="form-control" name="titre" [(ngModel)]="moduleCree.titre">
+    </div>
+    <div class="form-group">
+        <label for="description">description</label>
+        <input type="text" class="form-control" name="description" [(ngModel)]="moduleCree.description">
+    </div>
+    <div class="form-group">
+        <span class="input-group-text">Contenu</span>
+        <textarea class="form-control" aria-label="With textarea" name="contenu" [(ngModel)]="moduleCree.contenu" ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>
