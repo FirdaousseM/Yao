@@ -29,6 +29,10 @@ export class EditChapitreComponent implements OnInit {
   ngOnInit(): void {
     this.idDuModule = +this.route.snapshot.params['idMod'];
 
+    if (+this.route.snapshot.params['idChap'] !== null)
+    this.idDuChapitre = +this.route.snapshot.params['idChap'];
+
+
     this.getAllChapitreEditable()
 
     this.chapitreForm.controls['titreForm'].disable();
@@ -80,6 +84,14 @@ export class EditChapitreComponent implements OnInit {
     });
 
     console.log(this.unChapitre.id);
+  }
+
+  affichageAllChapModifiable(){
+    return this.adresseActu === '/modules/'+ this.idDuModule +'/edit/content';
+  }
+
+  affichageCreationChap(){
+    return this.adresseActu === '/modules/'+ this.idDuModule +'/edit/content/create';
   }
 
   chapEstModifiable(idChapActuelle: number) {
