@@ -16,7 +16,7 @@ export class ModulesComponent implements OnInit {
 
 
  
-  constructor(private dataService:DataService) { 
+  constructor(private moduleService:DataService) { 
   }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class ModulesComponent implements OnInit {
   }
 
   getAllModules(){
-    this.dataService.getAllModulesData().subscribe(res =>{
+    this.moduleService.getAllModulesData().subscribe(res =>{
       this.allModules = res;
     })
   }

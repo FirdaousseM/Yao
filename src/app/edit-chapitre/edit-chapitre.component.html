@@ -1,0 +1,33 @@
+<h1>Modifier les chapitres de votre module {{idDuModule}}</h1>
+
+
+<div>
+
+    <div>
+
+
+        <form [formGroup]="chapitreForm" (ngSubmit)="updateChapitre()" *ngFor="let chapitre of chapitresDuMod ">
+
+            <button routerLink="/modules/{{idDuModule}}/edit/content/{{chapitre.id}}" (click)="setChapEstModifiable()" class="btn btn-primary">Modifier Chapitre </button>
+
+            <div>
+                <div class="form-group">
+                    <label for="titre">Titre</label>
+                    <label>{{chapitre.id}}</label>
+                    <input  type="text" class="form-control" formControlName="titreForm" name="titre" [(ngModel)]="chapitre.titre">
+                </div>
+                <div class="form-group">
+                    <span class="input-group-text">Contenu</span>
+                    <textarea [disabled]="true" class="form-control" rows="10" aria-label="With textarea" formControlName="contenuForm" 
+                    name="contenu" [(ngModel)]="chapitre.contenu"></textarea>
+                </div>
+            </div>
+            
+
+            <button (click)="deleteChapitre(chapitre.id)" class="btn btn-primary">Supprimer ce chapitre</button>
+            <button type="submit" class="btn btn-primary">Valider Modification</button>
+        </form>
+        <button (click)="createChapitre()" class="btn btn-primary">Ajouter un chapitre</button>
+
+    </div>
+</div>

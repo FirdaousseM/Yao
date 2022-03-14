@@ -9,7 +9,7 @@ import { DataService } from '../service/data.service';
 })
 export class CreateModuleComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private moduleService: DataService) { }
 
   moduleCree = new Module;
 
@@ -17,8 +17,7 @@ export class CreateModuleComponent implements OnInit {
   }
 
   createModule(): void {
-    this.dataService.createModule(this.moduleCree).subscribe(res => {
-      console.log(res);
+    this.moduleService.createModule(this.moduleCree).subscribe(res => {
     })
   }
 }

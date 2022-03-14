@@ -11,9 +11,12 @@
     </div>
     <div class="form-group">
         <span class="input-group-text">Contenu</span>
-        <textarea class="form-control" aria-label="With textarea" name="contenu" [(ngModel)]="leModule.contenu" ></textarea>
+        <textarea class="form-control" aria-label="With textarea" name="contenu"
+            [(ngModel)]="leModule.contenu"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Modifier</button>
 </form>
+
+<a routerLink="content"> Modifier les chapitres du module {{ idModule }}</a>
 
 <button (click)="deleteModule()" class="btn btn-primary">Supprimer le module</button>

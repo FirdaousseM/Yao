@@ -64,11 +64,10 @@ export class EditChapitreComponent implements OnInit {
 
   }
 
-  deleteChapitre() {
-    this.getUnChapitre();
-    this.chapitreService.deleteChapitre(this.idDuModule, this.idDuChapitre).subscribe((res: any) => {
+  deleteChapitre(idChap: number) {
+    this.chapitreService.deleteChapitre(this.idDuModule, idChap).subscribe((res: any) => {
     });
-    
+
   }
 
   getUnChapitre() {

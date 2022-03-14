@@ -1,18 +1,13 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Titre</th>
-            <th scope="col">Description</th>
-            <th scope="col">Contenu</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">{{unModule.id}}</th>
-            <td>{{unModule.titre}}</td>
-            <td>{{unModule.description}}</td>
-            <td>{{unModule.contenu}}</td>
-        </tr>
-    </tbody>
-</table>
+<a routerLink="edit"> Modifier ce module en tant qu'auteur</a>
+
+<h1>{{requeteModule[0].titre}}</h1>
+
+<p>{{requeteModule[0].description}}</p>
+
+<div *ngFor="let chapitre of requeteModule | slice:1; let i = index;">
+
+    <div>
+        <h3>{{chapitre.titre}}</h3>
+        <p>{{chapitre.contenu}}</p>
+    </div>
+</div>
