@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Module } from '../models/module.model';
 import { DataService } from '../service/data.service';
 
@@ -10,7 +10,7 @@ import { DataService } from '../service/data.service';
 })
 export class EditModuleComponent implements OnInit {
 
-  constructor(private moduleService : DataService, private route: ActivatedRoute) { }
+  constructor(private moduleService : DataService, private route: ActivatedRoute, private router: Router) { }
 
 
   leModule!: any;
@@ -25,11 +25,16 @@ export class EditModuleComponent implements OnInit {
   }
 
   updateModule(){
+    this.router.navigate(['/modules']);
+
     this.moduleService.updateModule(this.leModule, this.idModule).subscribe(res => {
     });
   }
 
   deleteModule(){
+
+    this.router.navigate(['/modules']);
+
     this.moduleService.deleteModule(this.idModule).subscribe(res => {
     });
   }

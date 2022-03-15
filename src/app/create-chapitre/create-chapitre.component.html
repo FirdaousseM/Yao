@@ -1,0 +1,19 @@
+<div>
+    <h1>Créer un nouveau chapitre pour votre module {{idDuModule}}</h1>
+
+    <div>
+        <form (ngSubmit)="createChapitre()">
+            <div>
+                <div class="form-group">
+                    <label for="titre">Titre</label>
+                    <input type="text" class="form-control" name="titre" [(ngModel)]="unChapitre.titre">
+                </div>
+                <div class="form-group">
+                    <span class="input-group-text">Contenu</span>
+                    <textarea class="form-control" rows="10" aria-label="With textarea" name="contenu" [(ngModel)]="unChapitre.contenu"></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Valider Creation</button>
+        </form>
+    </div>
+</div>

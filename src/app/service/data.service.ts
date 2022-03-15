@@ -43,17 +43,16 @@ export class DataService {
   /** CHAPITRE **/
 
   // get all chapitres
-  getChapitreEditable(id: number) {
-    return this.httpClient.get(this.adresse + 'modules/' + id + '/edit/content');
+  getChapitreEditable(idMod: number) {
+    return this.httpClient.get(this.adresse + 'modules/' + idMod + '/edit/content');
   }
   // get 1 chapitre by id
-  
   getChapitre(idMod: number, idChap: number) {
     return this.httpClient.get(this.adresse + 'modules/' + idMod + '/edit/content/' + idChap);
   }
   // create chapitre
-  createChapitre(donneeChapitre: Chapitre, id: number) {
-    return this.httpClient.post(this.adresse + 'modules/' + id + '/edit/content', donneeChapitre);
+  createChapitre(donneeChapitre: Chapitre, idMod: number) {
+    return this.httpClient.post(this.adresse + 'modules/' + idMod + '/edit/content/create', donneeChapitre);
   }
   // update chapitre
   updateChapitre(donneeChapitre: Chapitre, id: number) { 
@@ -63,5 +62,9 @@ export class DataService {
   deleteChapitre(idMod: number, idChap: number) {
     return this.httpClient.delete(this.adresse + 'modules/' + idMod + '/edit/content/' + idChap);
   }
-
+  // get ordreDoc
+  getOrdreDoc(idMod: number) {
+    return this.httpClient.get(this.adresse + 'modules/' + idMod + '/edit/content/create');
+  }
+  
 }

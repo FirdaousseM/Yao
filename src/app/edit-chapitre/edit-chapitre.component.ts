@@ -21,22 +21,16 @@ export class EditChapitreComponent implements OnInit {
   chapitresDuMod!: any[];
   unChapitre!: any;
 
-  chapitreForm = new FormGroup({
-    titreForm: new FormControl(''),
-    contenuForm: new FormControl(''),
-  });
 
   ngOnInit(): void {
     this.idDuModule = +this.route.snapshot.params['idMod'];
 
     if (+this.route.snapshot.params['idChap'] !== null)
-    this.idDuChapitre = +this.route.snapshot.params['idChap'];
+      this.idDuChapitre = +this.route.snapshot.params['idChap'];
 
 
     this.getAllChapitreEditable()
 
-    this.chapitreForm.controls['titreForm'].disable();
-    this.chapitreForm.controls['contenuForm'].disable();
 
     this.adresseActu = this.router.url;
 
@@ -46,20 +40,15 @@ export class EditChapitreComponent implements OnInit {
     this.chapitreService.getChapitreEditable(this.idDuModule).subscribe((res: any) => {
       this.chapitresDuMod = res;
     });
-
-
-
   }
 
-  createChapitre() {
-    this.chapitreService.createChapitre(this.unChapitre, this.idDuModule).subscribe((res: any) => {
-    });
-  }
 
   updateChapitre() {
 
     this.getUnChapitre();
 
+    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content']);
+    
     console.log(this.idDuChapitre);
     this.chapitreService.updateChapitre(this.unChapitre, this.idDuChapitre).subscribe((res: any) => {
     });
@@ -68,8 +57,11 @@ export class EditChapitreComponent implements OnInit {
 
   }
 
-  deleteChapitre(idChap: number) {
-    this.chapitreService.deleteChapitre(this.idDuModule, idChap).subscribe((res: any) => {
+  deleteChapitre() {
+    
+    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content']);
+
+    this.chapitreService.deleteChapitre(this.idDuModule, this.idDuChapitre).subscribe((res: any) => {
     });
 
   }
@@ -86,34 +78,8 @@ export class EditChapitreComponent implements OnInit {
     console.log(this.unChapitre.id);
   }
 
-  affichageAllChapModifiable(){
-    return this.adresseActu === '/modules/'+ this.idDuModule +'/edit/content';
+  affichageAllChapModifiable() {
+    return this.adresseActu === '/modules/' + this.idDuModule + '/edit/content';
   }
 
-  affichageCreationChap(){
-    return this.adresseActu === '/modules/'+ this.idDuModule +'/edit/content/create';
-  }
-
-  chapEstModifiable(idChapActuelle: number) {
-
-    if (this.route.snapshot.params['idChap'] !== null) {
-      var idChap = this.route.snapshot.params['idChap'];
-      if (idChap === idChapActuelle)
-        return true;
-    }
-    return false;
-  }
-
-  setChapEstModifiable() {
-
-    if (!this.chapitreForm.controls['titreForm'].disabled)
-      this.chapitreForm.controls['titreForm'].disable();
-    else
-      this.chapitreForm.controls['titreForm'].enable();
-    if (!this.chapitreForm.controls['contenuForm'].disabled)
-      this.chapitreForm.controls['contenuForm'].disable();
-    else
-      this.chapitreForm.controls['contenuForm'].enable();
-
-  }
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Module } from '../models/module.model';
 import { DataService } from '../service/data.service';
 
@@ -9,7 +10,7 @@ import { DataService } from '../service/data.service';
 })
 export class CreateModuleComponent implements OnInit {
 
-  constructor(private moduleService: DataService) { }
+  constructor(private moduleService: DataService, private router: Router) { }
 
   moduleCree = new Module;
 
@@ -17,6 +18,9 @@ export class CreateModuleComponent implements OnInit {
   }
 
   createModule(): void {
+
+    this.router.navigate(['/modules']);
+
     this.moduleService.createModule(this.moduleCree).subscribe(res => {
     })
   }

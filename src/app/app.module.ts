@@ -16,6 +16,7 @@ import { CreateModuleComponent } from './create-module/create-module.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditModuleComponent } from './edit-module/edit-module.component';
 import { EditChapitreComponent } from './edit-chapitre/edit-chapitre.component';
+import { CreateChapitreComponent } from './create-chapitre/create-chapitre.component';
 
 
 
@@ -29,7 +30,8 @@ import { EditChapitreComponent } from './edit-chapitre/edit-chapitre.component';
     SingleModuleComponent,
     CreateModuleComponent,
     EditModuleComponent,
-    EditChapitreComponent
+    EditChapitreComponent,
+    CreateChapitreComponent
   ],
   imports: [
     BrowserModule,
