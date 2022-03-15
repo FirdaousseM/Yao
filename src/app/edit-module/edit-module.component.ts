@@ -10,35 +10,47 @@ import { DataService } from '../service/data.service';
 })
 export class EditModuleComponent implements OnInit {
 
-  constructor(private moduleService : DataService, private route: ActivatedRoute, private router: Router) { }
-
-
-  leModule!: any;
+  donneeModule!: any;
+  leModule = new Module();
   idModule!: number;
 
-  ngOnInit(): void {
-    this.idModule = +this.route.snapshot.params['id'];
+  constructor(private moduleService: DataService, private route: ActivatedRoute, private router: Router) { }
 
+  ngOnInit(): void {
+
+    this.idModule = +this.route.snapshot.params['idMod'];
+
+
+  }
+
+  getModuleById() {
     this.moduleService.getModuleById(this.idModule).subscribe(res => {
-      this.leModule = res;
+      this.donneeModule = res;
+      this.leModule = this.donneeModule;
     });
   }
 
-  updateModule(){
-    this.router.navigate(['/modules']);
-
+  updateModule() {
+    
     this.moduleService.updateModule(this.leModule, this.idModule).subscribe(res => {
     });
+
+    this.router.navigate(['/modules/' + this.idModule]);
+
   }
 
-  deleteModule(){
+  deleteModule() {
+
 
     this.router.navigate(['/modules']);
 
     this.moduleService.deleteModule(this.idModule).subscribe(res => {
     });
+
+
+
   }
 
-  
 
+ 
 }

@@ -21,8 +21,8 @@ export class DataService {
     return this.httpClient.get(this.adresse + 'modules');
   }
   // get 1 module par ID
-  getModuleById(id: number) {
-    return this.httpClient.get(this.adresse + 'modules/' + id);
+  getModuleById(idMod: number) {
+    return this.httpClient.get(this.adresse + 'modules/' + idMod);
   }
 
   // create module
@@ -31,13 +31,13 @@ export class DataService {
   }
 
   // update module
-  updateModule(donneeModule: Module, id: number) {
-    return this.httpClient.put(this.adresse + 'modules/' + id + '/edit', donneeModule);
+  updateModule(donneeModule: Module, idMod: number) {
+    return this.httpClient.put(this.adresse + 'modules/' + idMod + '/edit', donneeModule);
   }
 
   // delete module
-  deleteModule(id: number) {
-    return this.httpClient.delete(this.adresse + 'modules/' + id + '/edit');
+  deleteModule(idMod: number) {
+    return this.httpClient.delete(this.adresse + 'modules/' + idMod + '/edit');
   }
 
   /** CHAPITRE **/
@@ -55,8 +55,8 @@ export class DataService {
     return this.httpClient.post(this.adresse + 'modules/' + idMod + '/edit/content/create', donneeChapitre);
   }
   // update chapitre
-  updateChapitre(donneeChapitre: Chapitre, id: number) { 
-    return this.httpClient.put(this.adresse + 'modules/' + id + '/edit/content', donneeChapitre);
+  updateChapitre(donneeChapitre: Chapitre, idMod: number, idChap: number) { 
+    return this.httpClient.put(this.adresse + 'modules/' + idMod + '/edit/content/' + idChap, donneeChapitre);
   }
   // delete chapitre
   deleteChapitre(idMod: number, idChap: number) {

@@ -19,7 +19,9 @@ export class EditChapitreComponent implements OnInit {
   adresseActu!: String;
 
   chapitresDuMod!: any[];
-  unChapitre!: any;
+  
+  donneChapitre: any;
+  unChapitre = new Chapitre;
 
 
   ngOnInit(): void {
@@ -27,7 +29,6 @@ export class EditChapitreComponent implements OnInit {
 
     if (+this.route.snapshot.params['idChap'] !== null)
       this.idDuChapitre = +this.route.snapshot.params['idChap'];
-
 
     this.getAllChapitreEditable()
 
@@ -42,41 +43,41 @@ export class EditChapitreComponent implements OnInit {
     });
   }
 
+  getUnChapitre() {
+    this.idDuChapitre = +this.route.snapshot.params['idChap'];
+
+
+    this.chapitreService.getChapitre(this.idDuModule, this.idDuChapitre).subscribe((res: any) => {
+      this.unChapitre = res;
+    });
+
+    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content']);
+
+
+  }
 
   updateChapitre() {
 
-    this.getUnChapitre();
-
-    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content']);
     
-    console.log(this.idDuChapitre);
-    this.chapitreService.updateChapitre(this.unChapitre, this.idDuChapitre).subscribe((res: any) => {
+    this.chapitreService.updateChapitre(this.unChapitre, this.idDuModule, this.idDuChapitre).subscribe((res: any) => {
     });
 
+    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content/']);
 
 
   }
 
   deleteChapitre() {
     
-    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content']);
 
     this.chapitreService.deleteChapitre(this.idDuModule, this.idDuChapitre).subscribe((res: any) => {
     });
 
+    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content']);
+
   }
 
-  getUnChapitre() {
-    this.idDuChapitre = +this.route.snapshot.params['idChap'];
-
-    console.log(this.idDuModule);
-    console.log(this.idDuChapitre);
-    this.chapitreService.getChapitre(this.idDuModule, this.idDuChapitre).subscribe((res: any) => {
-      this.unChapitre = res;
-    });
-
-    console.log(this.unChapitre.id);
-  }
+ 
 
   affichageAllChapModifiable() {
     return this.adresseActu === '/modules/' + this.idDuModule + '/edit/content';

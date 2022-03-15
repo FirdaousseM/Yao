@@ -20,7 +20,11 @@ export class SingleModuleComponent implements OnInit {
   constructor(private moduleService: DataService, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
-    this.idDemande = +this.route.snapshot.params['id'];
+
+    this.requeteModule = new Array();
+    console.log(this.requeteModule);
+
+    this.idDemande = +this.route.snapshot.params['idMod'];
     this.getModuleByID();
   }
 

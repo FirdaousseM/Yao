@@ -16,8 +16,8 @@ const appRoutes: Routes = [
     { path: '', component: AccueilComponent },
     { path: 'modules', component: ModulesComponent },
     { path: 'modules/create', component: CreateModuleComponent },
-    { path: 'modules/:id', component: SingleModuleComponent },
-    { path: 'modules/:id/edit', component: EditModuleComponent },
+    { path: 'modules/:idMod', component: SingleModuleComponent },
+    { path: 'modules/:idMod/edit', component: EditModuleComponent },
 
     /** CHAPITRE **/
 

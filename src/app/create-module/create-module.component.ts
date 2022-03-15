@@ -19,9 +19,11 @@ export class CreateModuleComponent implements OnInit {
 
   createModule(): void {
 
-    this.router.navigate(['/modules']);
 
     this.moduleService.createModule(this.moduleCree).subscribe(res => {
-    })
+    });
+    
+    this.router.navigate(['/modules']);
+
   }
 }

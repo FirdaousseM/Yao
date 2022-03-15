@@ -41,10 +41,12 @@ export class CreateChapitreComponent implements OnInit {
 
   createChapitre() {
 
-    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content']);
 
     this.chapitreService.createChapitre(this.unChapitre, this.idDuModule).subscribe((res: any) => {
     });
+
+    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content']);
+
   }
 
 
