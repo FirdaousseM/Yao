@@ -16,7 +16,7 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  /** PROGRAMME **/
+  /** PROGRAMMEs **/
   
   // get all modules
   getAllProgrammesData() {
@@ -30,13 +30,13 @@ export class DataService {
   }
 
   // create module
-  createProgramme(donneeProgramme: Programme) {
-    return this.httpClient.post(this.adresse + 'programmes/create', donneeProgramme);
+  createProgramme(donneeProgrammes: Programme) {
+    return this.httpClient.post(this.adresse + 'programmes/create', donneeProgrammes);
   }
 
   // update module
-  updateProgramme(donneeProgramme: Programme, idProg: number) {
-    return this.httpClient.put(this.adresse + 'programmes/' + idProg + '/edit', donneeProgramme);
+  updateProgramme(donneeProgrammes: Programme, idProg: number) {
+    return this.httpClient.put(this.adresse + 'programmes/' + idProg + '/edit', donneeProgrammes);
   }
 
   // delete module
@@ -48,26 +48,26 @@ export class DataService {
 
   // get all modules
   getAllModulesData(idProg: number) {
-    return this.httpClient.get(this.adresse + 'programme/' + idProg + '/modules');
+    return this.httpClient.get(this.adresse + 'programmes/' + idProg + '/modules');
   }
   // get 1 module par ID
   getModuleById(idProg: number, idMod: number) {
-    return this.httpClient.get(this.adresse + 'programme/' + idProg + '/modules/' + idMod);
+    return this.httpClient.get(this.adresse + 'programmes/' + idProg + '/modules/' + idMod);
   }
 
-  // create module
+  // create module  
   createModule(idProg: number, donneeModule: Module) {
-    return this.httpClient.post(this.adresse + 'programme/' + idProg + '/modules/create', donneeModule);
+    return this.httpClient.post(this.adresse + 'programmes/' + idProg + '/modules/create', donneeModule);
   }
 
   // update module
   updateModule(idProg: number, donneeModule: Module, idMod: number) {
-    return this.httpClient.put(this.adresse + 'programme/' + idProg + '/modules/' + idMod + '/edit', donneeModule);
+    return this.httpClient.put(this.adresse + 'programmes/' + idProg + '/modules/' + idMod + '/edit', donneeModule);
   }
 
   // delete module
   deleteModule(idProg: number, idMod: number) {
-    return this.httpClient.delete(this.adresse + 'programme/' + idProg + '/modules/' + idMod + '/edit');
+    return this.httpClient.delete(this.adresse + 'programmes/' + idProg + '/modules/' + idMod + '/edit');
   }
 
   /** CHAPITRE **/

@@ -37,14 +37,14 @@ export class EditModuleComponent implements OnInit {
     this.moduleService.updateModule(this.idProg, this.leModule, this.idModule).subscribe(res => {
     });
 
-    this.router.navigate(['/programmes/modules/' + this.idModule]);
+    this.router.navigate(['/programmes/' + this.idProg + '/modules/' + this.idModule]);
 
   }
 
   deleteModule() {
 
 
-    this.router.navigate(['/programmes/modules']);
+    this.router.navigate(['/programmes/' + this.idProg + '/modules']);
 
     this.moduleService.deleteModule(this.idProg, this.idModule).subscribe(res => {
     });

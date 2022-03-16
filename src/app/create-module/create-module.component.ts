@@ -26,7 +26,7 @@ export class CreateModuleComponent implements OnInit {
     this.moduleService.createModule(this.idProg, this.moduleCree).subscribe(res => {
     });
     
-    this.router.navigate(['/modules']);
+    this.router.navigate(['/programmes/' + this.idProg + '/modules']);
 
   }
 }
