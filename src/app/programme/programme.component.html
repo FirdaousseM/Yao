@@ -19,3 +19,22 @@
 
     </tbody>
 </table>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-1">Les programmes</h1>
+        </div>
+    </div>
+
+    <div class="row rounded border border-5 border-primary" *ngFor="let unProgramme of allProgrammes">
+
+        <a routerLink="{{unProgramme.id}}">
+            <h1>{{unProgramme.titre}}</h1>
+            <p>{{unProgramme.description}}</p>
+            <label>{{unProgramme.domaine}}</label>
+        </a>
+
+    </div>
+</div>

@@ -3,7 +3,7 @@ export class Module {
     id!: number;
     titre!: string;
     description!: string;
-    idProgramme!: number;
+    id_programme!: number;
     
     constructor() {
 

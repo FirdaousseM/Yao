@@ -22,11 +22,12 @@ export class CreateModuleComponent implements OnInit {
 
   createModule(): void {
 
+    this.moduleCree.id_programme = this.idProg;
 
     this.moduleService.createModule(this.idProg, this.moduleCree).subscribe(res => {
     });
     
-    this.router.navigate(['/programmes/' + this.idProg + '/modules']);
+    this.router.navigate(['/programmes/' + this.idProg]);
 
   }
 }

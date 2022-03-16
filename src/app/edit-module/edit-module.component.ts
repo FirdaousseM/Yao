@@ -43,8 +43,9 @@ export class EditModuleComponent implements OnInit {
 
   deleteModule() {
 
+    this.router.navigate(['/programmes/' + this.idProg]);
 
-    this.router.navigate(['/programmes/' + this.idProg + '/modules']);
+
 
     this.moduleService.deleteModule(this.idProg, this.idModule).subscribe(res => {
     });
