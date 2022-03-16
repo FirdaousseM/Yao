@@ -21,6 +21,8 @@ import { SingleProgrammeComponent } from './single-programme/single-programme.co
 import { CreateProgrammeComponent } from './create-programme/create-programme.component';
 import { EditProgrammeComponent } from './edit-programme/edit-programme.component';
 
+import { ParticlesModule } from 'angular-particle';
+
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { EditProgrammeComponent } from './edit-programme/edit-programme.componen
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,  
-    AppRoutingModule  
+    AppRoutingModule,
+    
+    ParticlesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
