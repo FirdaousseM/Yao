@@ -15,6 +15,7 @@ export class EditChapitreComponent implements OnInit {
 
   idDuModule!: number;
   idDuChapitre!: number;
+  idDuProg!: number;
 
   adresseActu!: String;
 
@@ -26,6 +27,8 @@ export class EditChapitreComponent implements OnInit {
 
   ngOnInit(): void {
     this.idDuModule = +this.route.snapshot.params['idMod'];
+
+    this.idDuProg = +this.route.snapshot.params['idProg'];
 
     if (+this.route.snapshot.params['idChap'] !== null)
       this.idDuChapitre = +this.route.snapshot.params['idChap'];
@@ -51,7 +54,7 @@ export class EditChapitreComponent implements OnInit {
       this.unChapitre = res;
     });
 
-    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content']);
+    this.router.navigate(['programmes/' + this.idDuProg + '/modules/'+ this.idDuModule +'/edit/content']);
 
 
   }
@@ -62,7 +65,7 @@ export class EditChapitreComponent implements OnInit {
     this.chapitreService.updateChapitre(this.unChapitre, this.idDuModule, this.idDuChapitre).subscribe((res: any) => {
     });
 
-    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content/']);
+    this.router.navigate(['programmes/' + this.idDuProg + '/modules/'+ this.idDuModule +'/edit/content/']);
 
 
   }
@@ -73,14 +76,14 @@ export class EditChapitreComponent implements OnInit {
     this.chapitreService.deleteChapitre(this.idDuModule, this.idDuChapitre).subscribe((res: any) => {
     });
 
-    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content']);
+    this.router.navigate(['programmes/' + this.idDuProg + '/modules/'+ this.idDuModule +'/edit/content']);
 
   }
 
  
 
   affichageAllChapModifiable() {
-    return this.adresseActu === '/modules/' + this.idDuModule + '/edit/content';
+    return this.adresseActu === '/programmes/' + this.idDuProg + '/modules/' + this.idDuModule + '/edit/content';
   }
 
 }

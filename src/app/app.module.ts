@@ -17,6 +17,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditModuleComponent } from './edit-module/edit-module.component';
 import { EditChapitreComponent } from './edit-chapitre/edit-chapitre.component';
 import { CreateChapitreComponent } from './create-chapitre/create-chapitre.component';
+import { SingleProgrammeComponent } from './single-programme/single-programme.component';
+import { CreateProgrammeComponent } from './create-programme/create-programme.component';
+import { EditProgrammeComponent } from './edit-programme/edit-programme.component';
+
 
 
 
@@ -31,14 +35,18 @@ import { CreateChapitreComponent } from './create-chapitre/create-chapitre.compo
     CreateModuleComponent,
     EditModuleComponent,
     EditChapitreComponent,
-    CreateChapitreComponent
+    CreateChapitreComponent,
+    SingleProgrammeComponent,
+    CreateProgrammeComponent,
+    EditProgrammeComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,  
-    AppRoutingModule  
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,11 +13,13 @@ export class CreateChapitreComponent implements OnInit {
   unChapitre = new Chapitre;
 
   idDuModule!: number;
+  idDuProg!: number;
 
   constructor(private chapitreService: DataService, private route: ActivatedRoute, private router : Router) { }
 
   ngOnInit(): void {
     this.idDuModule = this.route.snapshot.params['idMod'];
+    this.idDuProg = this.route.snapshot.params['idProg'];
     this.unChapitre.id_module = this.idDuModule;
     console.log(this.idDuModule);
     console.log(this.unChapitre.id_module);
@@ -45,7 +47,7 @@ export class CreateChapitreComponent implements OnInit {
     this.chapitreService.createChapitre(this.unChapitre, this.idDuModule).subscribe((res: any) => {
     });
 
-    this.router.navigate(['/modules/'+ this.idDuModule +'/edit/content']);
+    this.router.navigate(['/programmes/'+ this.idDuProg +'/modules/'+ this.idDuModule +'/edit/content']);
 
   }
 

@@ -13,24 +13,29 @@ export class SingleModuleComponent implements OnInit {
 
   requeteModule!: any[];
 
-  idDemande!: number;
+  idModule!: number;
+
+  idProg!: number;
 
   chapitres!: any;
 
-  constructor(private moduleService: DataService, private route: ActivatedRoute ) { }
+  constructor(private moduleService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
     this.requeteModule = new Array();
     console.log(this.requeteModule);
 
-    this.idDemande = +this.route.snapshot.params['idMod'];
+    this.idModule = +this.route.snapshot.params['idMod'];
+
+    this.idProg = +this.route.snapshot.params['idProg'];
+
     this.getModuleByID();
   }
 
   getModuleByID() {
     
-    this.moduleService.getModuleById(this.idDemande).subscribe((res:any) =>{
+    this.moduleService.getModuleById(this.idProg, this.idModule).subscribe((res:any) =>{
       
       this.requeteModule = res;
     })

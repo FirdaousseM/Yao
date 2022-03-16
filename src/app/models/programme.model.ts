@@ -1,9 +1,9 @@
-export class Module {
+export class Programme {
 
     id!: number;
     titre!: string;
     description!: string;
-    id_programme!: number;
+    domaine!: string;
     
     constructor() {
 

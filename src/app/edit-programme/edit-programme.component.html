@@ -1,0 +1,21 @@
+<h1 class="display-1"> Modifier le programme {{ idProgramme }} </h1>
+
+<form (ngSubmit)="updateProgramme()">
+    <div class="form-group">
+        <label for="titre">Titre</label>
+        <input type="text" class="form-control" name="titre" [(ngModel)]="leProgramme.titre">
+    </div>
+    <div class="form-group">
+        <label for="description">description</label>
+        <input type="text" class="form-control" name="description" [(ngModel)]="leProgramme.description">
+    </div>
+    <div class="form-group">
+        <label for="domaine">domaine</label>
+        <input type="text" class="form-control" name="domaine" [(ngModel)]="leProgramme.domaine">
+    </div>
+    <button type="submit" class="btn btn-primary">Modifier</button>
+</form>
+
+<a routerLink="/programmes/{{idProgramme}}"> Modifier les modules du programme {{ idProgramme }}</a>
+
+<button (click)="deleteProgramme()" class="btn btn-primary">Supprimer le Programme</button> 
