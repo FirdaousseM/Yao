@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Module } from '../models/module.model';
 import { Chapitre } from '../models/chapitre.model';
+import { Programme } from '../models/programme.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,29 +16,58 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  /** MODULE **/
+  /** PROGRAMME **/
+  
   // get all modules
-  getAllModulesData() {
-    return this.httpClient.get(this.adresse + 'modules');
+  getAllProgrammesData() {
+    return this.httpClient.get(this.adresse + 'programmes');
   }
+
+  
   // get 1 module par ID
-  getModuleById(idMod: number) {
-    return this.httpClient.get(this.adresse + 'modules/' + idMod);
+  getProgrammeById(idProg: number) {
+    return this.httpClient.get(this.adresse + 'programmes/' + idProg);
   }
 
   // create module
-  createModule(donneeModule: Module) {
-    return this.httpClient.post(this.adresse + 'modules/create', donneeModule);
+  createProgramme(donneeProgramme: Programme) {
+    return this.httpClient.post(this.adresse + 'programmes/create', donneeProgramme);
   }
 
   // update module
-  updateModule(donneeModule: Module, idMod: number) {
-    return this.httpClient.put(this.adresse + 'modules/' + idMod + '/edit', donneeModule);
+  updateProgramme(donneeProgramme: Programme, idProg: number) {
+    return this.httpClient.put(this.adresse + 'programmes/' + idProg + '/edit', donneeProgramme);
   }
 
   // delete module
-  deleteModule(idMod: number) {
-    return this.httpClient.delete(this.adresse + 'modules/' + idMod + '/edit');
+  deleteProgramme(idProg: number) {
+    return this.httpClient.delete(this.adresse + 'programmes/' + idProg + '/edit');
+  }
+
+  /** MODULE **/
+
+  // get all modules
+  getAllModulesData(idProg: number) {
+    return this.httpClient.get(this.adresse + 'programme/' + idProg + '/modules');
+  }
+  // get 1 module par ID
+  getModuleById(idProg: number, idMod: number) {
+    return this.httpClient.get(this.adresse + 'programme/' + idProg + '/modules/' + idMod);
+  }
+
+  // create module
+  createModule(idProg: number, donneeModule: Module) {
+    return this.httpClient.post(this.adresse + 'programme/' + idProg + '/modules/create', donneeModule);
+  }
+
+  // update module
+  updateModule(idProg: number, donneeModule: Module, idMod: number) {
+    return this.httpClient.put(this.adresse + 'programme/' + idProg + '/modules/' + idMod + '/edit', donneeModule);
+  }
+
+  // delete module
+  deleteModule(idProg: number, idMod: number) {
+    return this.httpClient.delete(this.adresse + 'programme/' + idProg + '/modules/' + idMod + '/edit');
   }
 
   /** CHAPITRE **/

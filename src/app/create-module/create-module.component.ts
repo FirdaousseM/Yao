@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Module } from '../models/module.model';
 import { DataService } from '../service/data.service';
 
@@ -10,17 +10,20 @@ import { DataService } from '../service/data.service';
 })
 export class CreateModuleComponent implements OnInit {
 
-  constructor(private moduleService: DataService, private router: Router) { }
+  constructor(private moduleService: DataService, private route: ActivatedRoute, private router: Router) { }
 
   moduleCree = new Module;
+  idProg!: number;
 
   ngOnInit(): void {
+    this.idProg = this.route.snapshot.params['idProg']; 
+    
   }
 
   createModule(): void {
 
 
-    this.moduleService.createModule(this.moduleCree).subscribe(res => {
+    this.moduleService.createModule(this.idProg, this.moduleCree).subscribe(res => {
     });
     
     this.router.navigate(['/modules']);

@@ -1,0 +1,15 @@
+<a routerLink="edit"> Modifier ce module en tant qu'auteur</a>
+
+<h1>{{requeteProgramme[0].titre}}</h1>
+
+<p>{{requeteProgramme[0].description}}</p>
+
+<p>{{requeteProgramme[0].domaine}}</p>
+
+<div *ngFor="let module of requeteProgramme | slice:1; let i = index;">
+
+    <div>
+        <h3>{{module.titre}}</h3>
+        <p>{{module.description}}</p>
+    </div>
+</div>
