@@ -9,9 +9,13 @@
         <label for="description">description</label>
         <input type="text" class="form-control" name="description" [(ngModel)]="leProgramme.description">
     </div>
+    <div class="form-group">
+        <label for="domaine">domaine</label>
+        <input type="text" class="form-control" name="domaine" [(ngModel)]="leProgramme.domaine">
+    </div>
     <button type="submit" class="btn btn-primary">Modifier</button>
 </form>
 
-<!--<a routerLink="content"> Modifier les modules du programme {{ idProgramme }}</a>-->
+<a routerLink="/programmes/{{idProgramme}}"> Modifier les modules du programme {{ idProgramme }}</a>
 
 <button (click)="deleteProgramme()" class="btn btn-primary">Supprimer le Programme</button> 
