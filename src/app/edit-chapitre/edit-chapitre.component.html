@@ -1,37 +1,52 @@
-<h1> Edition du Module {{idDuModule}} en tant qu'auteur</h1>
+<div class="container leComponent">
 
-<div *ngIf="affichageAllChapModifiable() ; else pageUpdate">
-
-
-    <div *ngFor="let chapitre of chapitresDuMod">
-        <div>
-            <button routerLink="/programmes/{{idDuProg}}/modules/{{idDuModule}}/edit/content/{{chapitre.id}}" class="btn btn-primary">Modifier Chapitre {{chapitre.id}}</button>
-            <h3>{{chapitre.titre}}</h3>
-            <p>{{chapitre.contenu}}</p>
-        </div>
+    <div class="row">
+        <h1 class="display-1"> Edition du Module {{idDuModule}} en tant qu'auteur</h1>
     </div>
-    <button routerLink="/programmes/{{idDuProg}}/modules/{{idDuModule}}/edit/content/create" class="btn btn-primary">Créer un nouveau chapitre</button>
-</div>
 
-<ng-template #pageUpdate>
-    <h1>Modifier le chapitre {{idDuChapitre}} de votre module {{idDuModule}}</h1>
+    <div *ngIf="affichageAllChapModifiable() ; else pageUpdate">
 
-    <div>
-        <form (ngSubmit)="updateChapitre()">
+
+        <div *ngFor="let chapitre of chapitresDuMod; let i=index;">
             <div>
-                <div class="form-group">
-                    <label for="titre">Titre</label>
-                    <input type="text" class="form-control"  name="titre"
-                        [(ngModel)]="unChapitre.titre">
-                </div>
-                <div class="form-group">
-                    <span class="input-group-text">Contenu</span>
-                    <textarea class="form-control" rows="10" aria-label="With textarea"
-                     name="contenu" [(ngModel)]="unChapitre.contenu"></textarea>
-                </div>
+                <button routerLink="/programmes/{{idDuProg}}/modules/{{idDuModule}}/edit/content/{{chapitre.id}}"
+                    class="btn btn-warning">Modifier Chapitre {{i+1}}</button>
+                <h3>{{chapitre.titre}}</h3>
+                <p>{{chapitre.contenu}}</p>
             </div>
-            <button type="submit" class="btn btn-primary">Valider Modification</button>
-        </form>
-        <button (click)="deleteChapitre()" class="btn btn-primary">Supprimer ce chapitre</button>
+        </div>
+        <button routerLink="/programmes/{{idDuProg}}/modules/{{idDuModule}}/edit/content/create"
+            class="btn btn-success btnCreer">Créer un nouveau chapitre</button>
+    </div>
+</div>
+<ng-template #pageUpdate>
+    <div class="container leComponent">
+
+        <div class="row">
+            <h1>Modifier le chapitre {{idDuChapitre}} de votre module {{idDuModule}}</h1>
+        </div>
+        <div>
+            <form (ngSubmit)="updateChapitre()">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="titre">Titre :</label>
+                        <input type="text" class="form-control" name="titre" [(ngModel)]="unChapitre.titre">
+                    </div>
+                    <div class="form-group">
+                        <label for="contenu">Contenu :</label>
+                        <textarea class="form-control" rows="10" aria-label="With textarea" name="contenu"
+                            [(ngModel)]="unChapitre.contenu"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success btnMargination">Valider Modification</button>
+                    </div>
+                    <div class="col-md-4 offset-md-4">
+                        <button (click)="deleteChapitre()" class="btn btn-danger btnMargination">Supprimer ce chapitre</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </ng-template>

@@ -1,13 +1,41 @@
-<a routerLink="edit"> Modifier ce module en tant qu'auteur</a>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="infoModuleArticle">
+                <div class="row">
+                    <h1>{{titreProgramme}}</h1>
+                </div>
+                <div class="row">
+                    <a routerLink="edit"> Modifier ce module en tant qu'auteur</a>
+                </div>
+                <div class="row">
+                    <h2>{{requeteModule[0].titre}}</h2>
+                </div>
+                <div class="row">
+                    <p>{{requeteModule[0].description}}</p>
+                </div>
+            </div>
 
-<h1>{{requeteModule[0].titre}}</h1>
+            <div class="chapitreArticle">
+                <ul class="row" *ngFor="let chapitre of requeteModule | slice:1; let i = index;">
+                    <li class="listeChapitre">
+                        <h3>{{chapitre.titre}}</h3>
+                        <p class="contenu">{{chapitre.contenu}}</p>
+                    </li>
 
-<p>{{requeteModule[0].description}}</p>
+                </ul>
+            </div>
+        </div>
 
-<div *ngFor="let chapitre of requeteModule | slice:1; let i = index;">
+        <div class="col-2 creditProg">
+            <h3>Auteur : </h3>
+            <a href="">
+                <img class="creditImg" src="https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729512_960_720.jpg"
+                    alt="...">
 
-    <div>
-        <h3>{{chapitre.titre}}</h3>
-        <p>{{chapitre.contenu}}</p>
+                <label>Robert Speedwagon</label>
+                <label>Date d'inscription : 15-15-1515</label>
+            </a>
+        </div>
     </div>
 </div>

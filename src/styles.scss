@@ -1,9 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
-.active {
-    color: rgb(133, 86, 151);
-  }
-
+  
 a{
   text-decoration: none;
   color: black;
+}
+
+.margination{
+  margin: 1em;
+}
+
+.leComponent{
+  border-radius: 1em;
+  margin-bottom: 10em;
+
+  margin-top: 1em;
+  background-color: rgb(191, 255, 220);
+
+
+}
+
+.btnMargination{
+  margin: 1em 0 1em 0;
+}
+
+h1{
+  text-align: center;
+}
+
+.oldValue{
+  margin: 1em 0 1em 0;    
+}
+
+.unTitre{
+  text-transform: capitalize;
+}
+
+.creditProg{
+  background-color: rgb(160, 218, 191);
+
+  text-align: center;
+}
+
+.creditImg{
+  width: 12em;
+  height: 12em;
+
+  border-radius: 100%;
+
+  margin-bottom: 1em;
+
 }

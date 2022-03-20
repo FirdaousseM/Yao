@@ -1,18 +1,31 @@
+<div class="container-fluid">
 
-<div class="container">
     <div class="row">
-        <div class="col-12">
-            <h1 class="display-1">Les programmes</h1>
+        <div class="col">
+            <h1 class="display-1">LES PROGRAMMES</h1>
         </div>
     </div>
 
-    <div class="row rounded border border-5 border-primary" *ngFor="let unProgramme of allProgrammes">
+    <div class="row justify-content-center longueurDeCarte">
+        <div class="card col-3 margination prog" *ngFor="let unProgramme of allProgrammes">
+            <a routerLink="{{unProgramme.id}}">
 
-        <a routerLink="{{unProgramme.id}}">
-            <h1>{{unProgramme.titre}}</h1>
-            <p>{{unProgramme.description}}</p>
-            <label>{{unProgramme.domaine}}</label>
-        </a>
+                <img src="https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729512_960_720.jpg" class="card-img-top"
+                    alt="...">
+                <div class="card-body">
+                    <div class="row">
+                        <h2 class="card-title unTitre">{{unProgramme.titre}}</h2>
+                    </div>
+                    <div class="row">
+                        <label class="card-text"> {{unProgramme.domaine}}</label>
+                    </div>
+                    <div class="row">
+                        <p class="card-text">{{unProgramme.description}}</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
 
     </div>
 </div>

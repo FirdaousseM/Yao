@@ -22,7 +22,6 @@ export class SingleProgrammeComponent implements OnInit {
   ngOnInit(): void {
 
     this.requeteProgramme = new Array();
-    console.log(this.requeteProgramme);
 
     this.idDemande = +this.route.snapshot.params['idProg'];
     this.getProgrammeByID();

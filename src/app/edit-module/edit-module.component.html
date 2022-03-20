@@ -1,17 +1,34 @@
-<h1 class="display-1"> Modifier le module {{ idModule }} </h1>
+<div class="container leComponent">
 
-<form (ngSubmit)="updateModule()">
-    <div class="form-group">
-        <label for="titre">Titre</label>
-        <input type="text" class="form-control" name="titre" [(ngModel)]="leModule.titre">
+    <div class="row">
+        <h1 class="display-1"> Modifier le module {{ idModule }} </h1>
     </div>
-    <div class="form-group">
-        <label for="description">description</label>
-        <input type="text" class="form-control" name="description" [(ngModel)]="leModule.description">
+
+    <form (ngSubmit)="updateModule()">
+        <div class="row"> 
+            <div class="form-group">
+                <label for="titre">Titre :</label>
+                <input disabled type="text" class="form-control oldValue" value="{{donneeModule[0].titre}}">
+                <input type="text" class="form-control" name="titre" value="{{leModule.titre}}" [(ngModel)]="leModule.titre">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <input disabled type="text" class="form-control oldValue" value="{{donneeModule[0].description}}">
+                <input type="text" class="form-control" name="description" value="{{leModule.description}}" [(ngModel)]="leModule.description">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success btnMargination">Valider modification</button>
+
+    </form>
+    <div class="row justify-content-between">
+        <div class="col-md-4 btnMargination">
+            <a class="btn btn-warning" routerLink="content"> Modifier les chapitres du module </a>
+        </div>
+        <div class="col-md-4 offset-md-4 btnMargination">
+            <button (click)="deleteModule()" class="btn btn-danger">Supprimer le module</button>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Modifier</button>
-</form>
-
-<a routerLink="content"> Modifier les chapitres du module {{ idModule }}</a>
-
-<button (click)="deleteModule()" class="btn btn-primary">Supprimer le module</button> 
+</div>

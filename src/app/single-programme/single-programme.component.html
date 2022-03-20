@@ -1,20 +1,47 @@
-<a routerLink="edit"> Modifier ce programme en tant qu'auteur</a>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <a routerLink="edit"> Modifier ce programme en tant qu'auteur</a>
+                <h1 class="unTitre">{{requeteProgramme[0].titre}}</h1>
+            </div>
+            <div class="row">
+                <p>domaine : {{requeteProgramme[0].domaine}}</p>
+            </div>
+            <div class="row">
+                <p>{{requeteProgramme[0].description}}</p>
+            </div>
+            <div class="row">
+                <label>Dernière modification : {{requeteProgramme[0].updated_at}}</label>
+            </div>
 
-<h1>{{requeteProgramme[0].titre}}</h1>
 
-<p>{{requeteProgramme[0].description}}</p>
+            <div class="row unMod card g-0" *ngFor="let module of requeteProgramme | slice:1; let i = index;">
+                <a routerLink="/programmes/{{requeteProgramme[0].id}}/modules/{{module.id}}">
 
-<p>{{requeteProgramme[0].domaine}}</p>
+                    <div class="card-header">
+                        <span class="fst-italic">Module {{i+1}}</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{module.titre}}</h3>
+                        <p class="card-title">{{module.description}}</p>
+                    </div>
+                </a>
+            </div>
 
-
-<div *ngFor="let module of requeteProgramme | slice:1; let i = index;">
-    <a routerLink="/programmes/{{requeteProgramme[0].id}}/modules/{{module.id}}">
-        <div>
-            <h3>{{module.titre}}</h3>
-            <p>{{module.description}}</p>
+            <a routerLink="/programmes/{{requeteProgramme[0].id}}/modules/create">Creer un module pour le programme
+                {{requeteProgramme[0].id}} </a>
         </div>
-    </a>
+
+        <div class="col-2 creditProg">
+            <h3>Auteur : </h3>
+            <a href="" >
+                <img class="creditImg" src="https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729512_960_720.jpg"
+                    alt="...">
+
+                <label>Robert Speedwagon</label>
+                <label>Date d'inscription : 15-15-1515</label>
+            </a>
+        </div>
+    </div>
 </div>
-
-<a routerLink="/programmes/{{requeteProgramme[0].id}}/modules/create">Creer un module pour le programme {{requeteProgramme[0].id}} </a>
-

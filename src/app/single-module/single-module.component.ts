@@ -19,6 +19,8 @@ export class SingleModuleComponent implements OnInit {
 
   chapitres!: any;
 
+  titreProgramme!: string;
+
   constructor(private moduleService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -31,13 +33,27 @@ export class SingleModuleComponent implements OnInit {
     this.idProg = +this.route.snapshot.params['idProg'];
 
     this.getModuleByID();
+
+    this.getTitreProgramme();
   }
 
   getModuleByID() {
     
-    this.moduleService.getModuleById(this.idProg, this.idModule).subscribe((res:any) =>{
+    this.moduleService.getModuleById(this.idModule).subscribe((res:any)=>{
       
       this.requeteModule = res;
+    })
+  }
+
+  getTitreProgramme() {
+    
+    this.moduleService.getProgrammeById(this.idProg).subscribe((res:any) =>{
+      
+      var requeteProgramme: any[];
+      requeteProgramme = new Array();
+      requeteProgramme = res;
+
+      this.titreProgramme = requeteProgramme[0].titre;
     })
 
 
