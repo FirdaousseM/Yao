@@ -21,14 +21,12 @@ export class EditModuleComponent implements OnInit {
 
     this.idModule = +this.route.snapshot.params['idMod'];
     this.idProg = +this.route.snapshot.params['idProg'];
-
-
+    this.getModuleById
   }
 
   getModuleById() {
-    this.moduleService.getModuleById(this.idProg, this.idModule).subscribe(res => {
+    this.moduleService.getModuleById(this.idModule).subscribe(res => {
       this.donneeModule = res;
-      this.leModule = this.donneeModule;
     });
   }
 

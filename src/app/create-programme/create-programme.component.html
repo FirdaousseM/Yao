@@ -1,17 +1,29 @@
-<h1 class="display-1"> Créer un programme </h1>
+<div class="container">
 
-<form (ngSubmit)="createProgramme()">
-    <div class="form-group">
-        <label for="titre">Titre</label>
-        <input type="text" class="form-control" name="titre" [(ngModel)]="programmeCree.titre">
+    <div class="row">
+        <h1 class="display-1"> Créer un programme </h1>
     </div>
-    <div class="form-group">
-        <label for="description">description</label>
-        <input type="text" class="form-control" name="description" [(ngModel)]="programmeCree.description">
-    </div>
-    <div class="form-group">
-        <label for="domaine">domaine</label>
-        <input type="text" class="form-control" name="domaine" [(ngModel)]="programmeCree.domaine">
-    </div>
-    <button type="submit" class="btn btn-primary">Ajouter</button>
-</form>
+
+    <form (ngSubmit)="createProgramme()">
+        <div class="form-group">
+            <label for="titre">Titre :</label>
+            <input type="text" class="form-control" name="titre" [(ngModel)]="programmeCree.titre">
+        </div>
+        <div class="form-group">
+            <label for="description">Description :</label>
+            <input type="text" class="form-control" name="description" [(ngModel)]="programmeCree.description">
+        </div>
+
+        <label for="domaine">Domaine :</label>
+        <select class="form-select" name="domaine" [(ngModel)]="programmeCree.domaine">
+            <option selected>Choisir domaine</option>
+            <option value="cuisine">Cuisine</option>
+            <option value="sport">Sport</option>
+            <option value="informatique">Informatique</option>
+        </select>
+
+        <button type="submit" class="btn btn-success">Ajouter</button>
+        
+    </form>
+
+</div>

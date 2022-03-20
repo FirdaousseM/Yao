@@ -24,10 +24,14 @@ export class CreateModuleComponent implements OnInit {
 
     this.moduleCree.id_programme = this.idProg;
 
+    console.log("l'id programme regarde : "+this.moduleCree.id_programme);
+    console.log("le programme regarde : "+this.moduleCree);
+
+
     this.moduleService.createModule(this.idProg, this.moduleCree).subscribe(res => {
     });
     
     this.router.navigate(['/programmes/' + this.idProg]);
-
+                
   }
 }

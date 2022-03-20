@@ -13,9 +13,9 @@
         <label for="domaine">domaine</label>
         <input type="text" class="form-control" name="domaine" [(ngModel)]="leProgramme.domaine">
     </div>
-    <button type="submit" class="btn btn-primary">Modifier</button>
+    <button type="submit" class="btn btn-success">Modifier</button>
 </form>
 
 <a routerLink="/programmes/{{idProgramme}}"> Modifier les modules du programme {{ idProgramme }}</a>
 
-<button (click)="deleteProgramme()" class="btn btn-primary">Supprimer le Programme</button> 
+<button (click)="deleteProgramme()" class="btn btn-danger">Supprimer le Programme</button> 

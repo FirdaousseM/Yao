@@ -51,23 +51,23 @@ export class DataService {
     return this.httpClient.get(this.adresse + 'programmes/' + idProg + '/modules');
   }
   // get 1 module par ID
-  getModuleById(idProg: number, idMod: number) {
-    return this.httpClient.get(this.adresse + 'programmes/' + idProg + '/modules/' + idMod);
+  getModuleById(idMod: number) {
+    return this.httpClient.get(this.adresse + 'modules/' + idMod);
   }
 
   // create module  
   createModule(idProg: number, donneeModule: Module) {
-    return this.httpClient.post(this.adresse + 'programmes/' + idProg + '/modules/create', donneeModule);
+    return this.httpClient.post(this.adresse + 'modules/create', donneeModule);
   }
 
   // update module
   updateModule(idProg: number, donneeModule: Module, idMod: number) {
-    return this.httpClient.put(this.adresse + 'programmes/' + idProg + '/modules/' + idMod + '/edit', donneeModule);
+    return this.httpClient.put(this.adresse + 'modules/' + idMod + '/edit', donneeModule);
   }
 
   // delete module
   deleteModule(idProg: number, idMod: number) {
-    return this.httpClient.delete(this.adresse + 'programmes/' + idProg + '/modules/' + idMod + '/edit');
+    return this.httpClient.delete(this.adresse + 'modules/' + idMod + '/edit');
   }
 
   /** CHAPITRE **/
