@@ -20,6 +20,10 @@ import { CreateChapitreComponent } from './create-chapitre/create-chapitre.compo
 import { SingleProgrammeComponent } from './single-programme/single-programme.component';
 import { CreateProgrammeComponent } from './create-programme/create-programme.component';
 import { EditProgrammeComponent } from './edit-programme/edit-programme.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { EditAccountComponent } from './edit-account/edit-account.component';
+import { AccountComponent } from './account/account.component';
 
 
 
@@ -39,6 +43,10 @@ import { EditProgrammeComponent } from './edit-programme/edit-programme.componen
     SingleProgrammeComponent,
     CreateProgrammeComponent,
     EditProgrammeComponent,
+    ConnexionComponent,
+    InscriptionComponent,
+    EditAccountComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,
