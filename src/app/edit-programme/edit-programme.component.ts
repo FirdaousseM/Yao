@@ -46,9 +46,6 @@ export class EditProgrammeComponent implements OnInit {
 
     this.ProgrammeService.deleteProgramme(this.idProgramme).subscribe(res => {
     });
-
-
-
   }
 
 }
