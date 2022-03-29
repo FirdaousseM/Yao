@@ -1,1 +1,40 @@
-<p>inscription works!</p>
+<div class="container">
+
+    <h1 class="display-1">INSCRIPTION</h1>
+
+    <form (ngSubmit)="inscription()">
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Nom d'utilisateur</span>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default" name="name" [(ngModel)]="user.name">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Email</span>
+            <input type="text" class="form-control" placeholder="exemple@test.com" aria-label="Email"
+                aria-describedby="basic-addon1" name="email" [(ngModel)]="user.email">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Mot de passe</span>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password"
+                [(ngModel)]="user.password">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Confirmer mot de passe</span>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password_confirmation"
+                [(ngModel)]="user.password_confirmation">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember_token"
+                [(ngModel)]="user.remember_token">
+            <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Avatar</label>
+            <input class="form-control" type="file" id="formFile" name="avatar" [(ngModel)]="user.avatar">
+        </div>
+
+        <button type="submit" class="btn btn-success">S'inscrire</button>
+
+    </form>
+</div>

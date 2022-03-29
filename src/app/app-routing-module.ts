@@ -15,7 +15,7 @@ import { ModulesComponent } from "./modules/modules.component";
 import { ProgrammeComponent } from "./programme/programme.component";
 import { SingleModuleComponent } from "./single-module/single-module.component";
 import { SingleProgrammeComponent } from "./single-programme/single-programme.component";
-
+import { AuthGuard } from "./authentication/auth.guard";
 
 const appRoutes: Routes = [
 
@@ -27,15 +27,15 @@ const appRoutes: Routes = [
 
     { path: 'register', component: InscriptionComponent },
     { path: 'login', component: ConnexionComponent },
-    { path: 'account', component: AccountComponent },
-    { path: 'account/edit', component: EditAccountComponent },
+    { path: 'account/:idUser', component: AccountComponent, canActivate: [AuthGuard] },
+    { path: 'account/:idUser/edit', component: EditAccountComponent, canActivate: [AuthGuard] },
 
     /** PROGRAMME **/
 
     { path: 'programmes', component: ProgrammeComponent },
-    { path: 'programmes/create', component: CreateProgrammeComponent },
+    { path: 'programmes/create', component: CreateProgrammeComponent, canActivate: [AuthGuard] },
     { path: 'programmes/:idProg', component: SingleProgrammeComponent },
-    { path: 'programmes/:idProg/edit', component: EditProgrammeComponent },
+    { path: 'programmes/:idProg/edit', component: EditProgrammeComponent, canActivate: [AuthGuard] },
 
 
     /** MODULE **/
@@ -43,15 +43,15 @@ const appRoutes: Routes = [
 
 
     { path: 'programmes/:idProg/modules', component: ModulesComponent },
-    { path: 'programmes/:idProg/modules/create', component: CreateModuleComponent },
+    { path: 'programmes/:idProg/modules/create', component: CreateModuleComponent, canActivate: [AuthGuard] },
     { path: 'programmes/:idProg/modules/:idMod', component: SingleModuleComponent },
-    { path: 'programmes/:idProg/modules/:idMod/edit', component: EditModuleComponent },
+    { path: 'programmes/:idProg/modules/:idMod/edit', component: EditModuleComponent, canActivate: [AuthGuard]  },
 
     /** CHAPITRE **/
 
     { path: 'programmes/:idProg/modules/:idMod/edit/content', component: EditChapitreComponent },
-    { path: 'programmes/:idProg/modules/:idMod/edit/content/create', component: CreateChapitreComponent },
-    { path: 'programmes/:idProg/modules/:idMod/edit/content/:idChap', component: EditChapitreComponent }
+    { path: 'programmes/:idProg/modules/:idMod/edit/content/create', component: CreateChapitreComponent, canActivate: [AuthGuard]  },
+    { path: 'programmes/:idProg/modules/:idMod/edit/content/:idChap', component: EditChapitreComponent, canActivate: [AuthGuard]  }
 
 
 ]

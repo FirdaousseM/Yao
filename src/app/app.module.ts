@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { Router, RouterModule, Routes } from '@angular/router'; 
-import { HttpClientModule } from '@angular/common/http';
+import { Router, RouterModule, Routes } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -24,6 +24,8 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
 import { AccountComponent } from './account/account.component';
+import { AuthInterceptor } from './authentication/auth.interceptor';
+import { NavbarAccountComponent } from './navbar-account/navbar-account.component';
 
 
 
@@ -47,16 +49,23 @@ import { AccountComponent } from './account/account.component';
     InscriptionComponent,
     EditAccountComponent,
     AccountComponent,
+    NavbarAccountComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,  
+    ReactiveFormsModule,
     AppRoutingModule,
-    
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

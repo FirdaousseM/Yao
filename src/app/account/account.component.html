@@ -1,1 +1,25 @@
-<p>account works!</p>
+<div class="container compte">
+    <div class="row sousCompte g-0">
+        <div class="col-sm-6 col-md-8 infosCompte">
+            <div class="row">
+                <label class="leLabel">{{currentUser.name}}</label>
+
+            </div>
+            <div class="row">
+                <label class="leLabel">{{currentUser.email}}</label>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 imageDiv">
+            <img class="imageProfile" [src]="currentUser.avatar" alt="image ???">
+        </div>
+    </div>
+
+    <div class="row boutons">
+        <div class="col">
+            <button routerLink="/account/{{currentUser.id}}/edit" class="btn btn-warning">Modifier mon compte</button>
+        </div>
+        <div class="col">
+            <button (click)="deconnexion()"  class="btn btn-danger">Déconnexion</button>
+        </div>
+    </div>
+</div>

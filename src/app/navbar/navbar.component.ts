@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from '../models/user.model';
+import { DataService } from '../service/data.service';
+import { TokenService } from '../service/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
 
-  
+  constructor(private actRoute: ActivatedRoute) { }
+
+  authService!: TokenService; 
+  donneeRequete!: any;
+  currentUser = new User;
+
   ngOnInit(): void {
+
   }
+
+
+
+
+
 
 }

@@ -1,1 +1,26 @@
-<p>connexion works!</p>
+<div class="container">
+    
+    <h1 class="display-1">CONNEXION</h1>
+
+    <form (ngSubmit)="connexion()">
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Email</span>
+            <input type="text" class="form-control" placeholder="exemple@test.com" aria-label="Email"
+                aria-describedby="basic-addon1" name="email" [(ngModel)]="user.email">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Mot de passe</span>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password"
+                [(ngModel)]="user.password">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember_token"
+                [(ngModel)]="user.remember_token">
+            <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
+        </div>
+
+        <button type="submit" class="btn btn-success">Se connecter</button>
+
+    </form>
+</div>
