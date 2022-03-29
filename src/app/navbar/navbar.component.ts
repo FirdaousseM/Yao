@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { User } from '../models/user.model';
 import { DataService } from '../service/data.service';
+import { TokenService } from '../service/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,19 +12,19 @@ import { DataService } from '../service/data.service';
 export class NavbarComponent implements OnInit {
 
 
-  constructor(private userService: DataService) { }
+  constructor(private actRoute: ActivatedRoute) { }
 
+  authService!: TokenService; 
   donneeRequete!: any;
-  user!: User;
-  
-  ngOnInit(): void { 
-    /*
-    this.userService.getAccount().subscribe((res: any) => {
-      this.donneeRequete = res;
-    });
+  currentUser = new User;
 
-    console.log(this.donneeRequete);
-    */
+  ngOnInit(): void {
+
   }
+
+
+
+
+
 
 }

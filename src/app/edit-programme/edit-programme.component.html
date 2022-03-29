@@ -1,21 +1,30 @@
-<h1 class="display-1"> Modifier le programme {{ idProgramme }} </h1>
+<div class="container">
+    <h1 class="display-1"> Modifier le programme {{ idProgramme }} </h1>
 
-<form (ngSubmit)="updateProgramme()">
-    <div class="form-group">
-        <label for="titre">Titre</label>
-        <input type="text" class="form-control" name="titre" [(ngModel)]="leProgramme.titre">
-    </div>
-    <div class="form-group">
-        <label for="description">description</label>
-        <input type="text" class="form-control" name="description" [(ngModel)]="leProgramme.description">
-    </div>
-    <div class="form-group">
-        <label for="domaine">domaine</label>
-        <input type="text" class="form-control" name="domaine" [(ngModel)]="leProgramme.domaine">
-    </div>
-    <button type="submit" class="btn btn-success">Modifier</button>
-</form>
+    <form (ngSubmit)="updateProgramme()">
+        <div class="form-group">
+            <label for="titre">Titre</label>
+            <input type="text" class="form-control" name="titre" [(ngModel)]="leProgramme.titre">
+        </div>
+        <div class="form-group">
+            <label for="description">description</label>
+            <input type="text" class="form-control" name="description" [(ngModel)]="leProgramme.description">
+        </div>
+        <label for="domaine">Domaine :</label>
+        <select class="form-select" name="domaine" [(ngModel)]="leProgramme.domaine">
+            <option selected>Choisir domaine</option>
+            <option value="cuisine">Cuisine</option>
+            <option value="sport">Sport</option>
+            <option value="informatique">Informatique</option>
+            <option value="développement informatique">Développement Informatique</option>
+            <option value="reseau">Réseau</option>
+        </select>
+        <button type="submit" class="btn btn-success">Modifier</button>
+    </form>
 
-<a routerLink="/programmes/{{idProgramme}}"> Modifier les modules du programme {{ idProgramme }}</a>
+    
 
-<button (click)="deleteProgramme()" class="btn btn-danger">Supprimer le Programme</button> 
+    <button class="btn btn-warning" routerLink="/programmes/{{idProgramme}}"> Modifier les modules du programme {{ idProgramme }}</button>
+
+    <button (click)="deleteProgramme()" class="btn btn-danger">Supprimer le Programme</button>
+</div>

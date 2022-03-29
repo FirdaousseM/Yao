@@ -33,9 +33,9 @@ const appRoutes: Routes = [
     /** PROGRAMME **/
 
     { path: 'programmes', component: ProgrammeComponent },
-    { path: 'programmes/create', component: CreateProgrammeComponent },
+    { path: 'programmes/create', component: CreateProgrammeComponent, canActivate: [AuthGuard] },
     { path: 'programmes/:idProg', component: SingleProgrammeComponent },
-    { path: 'programmes/:idProg/edit', component: EditProgrammeComponent },
+    { path: 'programmes/:idProg/edit', component: EditProgrammeComponent, canActivate: [AuthGuard] },
 
 
     /** MODULE **/

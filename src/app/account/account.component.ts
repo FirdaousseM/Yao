@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../models/user.model';
 import { TokenService } from '../service/token.service';
 
 @Component({
@@ -9,22 +10,29 @@ import { TokenService } from '../service/token.service';
 })
 export class AccountComponent implements OnInit {
 
-  
-  currentUser: Object = {};
-  constructor(
-    public authService: TokenService,
-    private actRoute: ActivatedRoute
-  ) {
-    let id = this.actRoute.snapshot.paramMap.get('id');
-    this.authService.getUserProfile(id).subscribe((res) => {
-      this.currentUser = res.msg;
+
+  currentUser!: User;
+  donneeUser!: any[];
+  id!: number;
+
+  constructor(private authService: TokenService, private actRoute:ActivatedRoute, private router:Router) { }
+
+  ngOnInit(): void {
+    this.id = this.actRoute.snapshot.params['idUser'];
+    this.getUser();
+  }
+
+  getUser() {
+    this.authService.getUserProfile(this.id).subscribe(res => {
+      this.currentUser = res;
     });
   }
 
-  logout() {
+  deconnexion(): void{
     this.authService.deconnexion();
-  }
-  ngOnInit(): void {
+    this.router.navigate(['/login']);
   }
 
+  
 }
+

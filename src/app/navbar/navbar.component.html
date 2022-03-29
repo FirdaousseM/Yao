@@ -18,14 +18,16 @@
           <a class="nav-link" routerLink="/programmes/create">Creer Programme </a>
         </li>
       </ul>
+
+      <!--
       <form class="d-flex">
         <input class="form-control" type="search" placeholder="Recherche..." aria-label="Search">
         <button class="btn btn-dark" type="submit">Rechercher</button>
       </form>
+-->
       <div>
-        <a routerLink="/account">
-          <div class="imageAccount"></div>
-          <!--<img class="imageAccount" [src]="user.avatar" alt="">-->
+        <a href="/profile">
+          <img class="imageAccount" [src]="currentUser.avatar" alt="">
         </a>
       </div>
     </div>
