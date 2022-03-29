@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { DataService } from '../service/data.service';
+import { TokenService } from '../service/token.service';
 
 @Component({
   selector: 'app-inscription',
@@ -10,10 +11,9 @@ import { DataService } from '../service/data.service';
 })
 export class InscriptionComponent implements OnInit {
 
+  constructor(private userService: TokenService, private router:Router) { }
 
 
-  constructor(private userService: DataService, private router:Router) { }
-  
   user = new User;
 
   ngOnInit(): void {
@@ -24,6 +24,9 @@ export class InscriptionComponent implements OnInit {
 
     this.userService.inscription(this.user).subscribe(res =>{
       console.log(this.user);
+      if (res.result) {
+        this.router.navigate(['connexion']);
+      }
     });
 
     this.router.navigate(['/']);

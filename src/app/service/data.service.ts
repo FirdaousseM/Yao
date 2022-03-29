@@ -4,6 +4,7 @@ import { Module } from '../models/module.model';
 import { Chapitre } from '../models/chapitre.model';
 import { Programme } from '../models/programme.model';
 import { User } from '../models/user.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,7 @@ export class DataService {
   }
 
   // get account infos
-  getAccount() {
+  getAccount(): Observable<any> {
     return this.httpClient.get(this.adresse + 'account');
   }
 

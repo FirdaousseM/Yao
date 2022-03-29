@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user.model';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
 
+  constructor(private userService: DataService) { }
+
+  donneeRequete!: any;
+  user!: User;
   
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    /*
+    this.userService.getAccount().subscribe((res: any) => {
+      this.donneeRequete = res;
+    });
+
+    console.log(this.donneeRequete);
+    */
   }
 
 }

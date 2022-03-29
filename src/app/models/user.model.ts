@@ -7,7 +7,6 @@ export class User {
     password_confirmation!: string;
     avatar!: string;
     remember_token!: string;
-    token!: string;
 
     constructor() {
 
